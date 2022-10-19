@@ -1,13 +1,13 @@
 public class Main {
     public static void main(String[] args){
-        Pilha p1 = new Pilha(7);
-        p1.push('p');
-        p1.push('a');
-        p1.push('t');
-        p1.push('r');
-        p1.push('i');
-        p1.push('c');
-        p1.push('k');
-        p1.printaPilha();
+        Pilha p1 = new Pilha();
+        p1.setTam();
+        for(int i = 0; i < p1.tam; i++){
+            p1.push(); // Pilha toda preenchida
+        }
+        p1.preencheX();
+        p1.preencheY();
+        p1.comparaXY();
+
     }
 }
