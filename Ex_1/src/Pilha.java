@@ -6,10 +6,11 @@ public class Pilha {
     public Pilha(int tamanho){
         this.tam = tamanho;
         this.topo = -1;
+        this.vet = new char[tam];
     }
 
     public boolean vazia(){
-        if(topo == -1){
+        if(this.topo == -1){
             return true;
         }
         else{
@@ -17,7 +18,7 @@ public class Pilha {
         }
     }
     public boolean cheia(){
-        if(topo == this.tam-1){
+        if(this.topo == this.tam - 1){
             return true;
         }
         else{
@@ -25,9 +26,9 @@ public class Pilha {
         }
     }
     public boolean push(char elemento){
-        if(!cheia()){    
-            topo++;
-            vet[topo] = elemento;
+        if(!this.cheia()){    
+            this.topo++;
+            this.vet[topo] = elemento;
             return true;
         }
         else{
@@ -36,11 +37,17 @@ public class Pilha {
     }
     public char pop(){
         char c = '\0';
-        if(!vazia()){
-            c = vet[topo];
-            topo--;
+        if(!this.vazia()){
+            c = this.vet[topo];
+            this.topo--;
         }
         return c;
     }
-
+    public void printaPilha(){
+        for(int i = 0; i < tam; i++){
+            for(int j = 1; j <= tam; j++){
+                System.out.println(j + ' ' + this.vet[i]);
+            }
+        }
+    }
 }
