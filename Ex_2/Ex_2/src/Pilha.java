@@ -6,12 +6,13 @@ public class Pilha {
     char vet[];
     char vet_aux[];
     int topo_aux;
-
+    boolean acertou;
     public Pilha(int tam){
         this.tam = tam;
         this.tam_aux = tam / 2;
         this.topo = -1;
         this.topo_aux = -1;
+        this.acertou = false;
         this.vet = new char[this.tam];
         this.vet_aux = new char[this.tam_aux];
         this.preenchido = false;
@@ -45,23 +46,32 @@ public class Pilha {
     }
     public boolean push(char elemento){
         if(!this.cheia()){    
-            if (elemento == 'D'){ // IGNORAR O 'D'
+            if(elemento == 'D'){ // Usa o 'D' para verificar se acertou == true
+                if(acertou == false){
+                    System.out.println("Formato x C y errado.");
+                    System.exit(0);
+                }
+                else{
+                    return true;
+                }
+            }
+            else if (elemento == 'C'){ // Ignora o C 
                 this.preenchido = true;
                 return true;
             }
             if(this.preenchido == true){
-                if (!igual(elemento)){ // Se forem diferentes
-                    System.out.println("Y nao e inverso de X.");
-                    System.exit(0);
+                if (!igual(elemento)){ 
+                    acertou = false;
                 }
-                else if(this.vazia() || this.vet[topo] == 'D'){
-                    System.out.println("Y e inverso de X.");
+                else if(this.vazia()){
+                    this.preenchido = false;
+                    acertou = true;
                     return true;
                 }
                 else{ // Se forem iguais
                     return true;
                 }
-        }
+            }
             this.topo++;
             this.vet[this.topo] = elemento;
             return true;
