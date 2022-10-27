@@ -1,12 +1,12 @@
 public class Pilha {
-    int tam;
-    int tam_aux;
-    int topo;
-    boolean preenchido;
-    char vet[];
-    char vet_aux[];
-    int topo_aux;
-    boolean acertou;
+   private int tam;
+   private int tam_aux;
+   private int topo;
+   private boolean preenchido;
+   private char vet[];
+   private char vet_aux[];
+   private int topo_aux;
+   private boolean acertou;
     public Pilha(int tam){
         this.tam = tam;
         this.tam_aux = tam / 2;
