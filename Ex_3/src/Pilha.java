@@ -1,8 +1,8 @@
 public class Pilha {
-    int tam;
-    char vet[];
-    int topo_p1;
-    int topo_p2;
+    private int tam;
+    private char vet[];
+    private int topo_p1;
+    private int topo_p2;
 
     public Pilha(int tam){
         this.tam = tam;
